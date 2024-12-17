@@ -1,5 +1,4 @@
 # YouTube-Data-Engineering-Analysis-Project
-# **YouTube Trending Videos Analysis Project**
 
 ## **Overview**
 This project focuses on analyzing and processing *YouTube trending video data*. Leveraging *AWS services*, the pipeline ingests, processes, and transforms raw YouTube data into structured insights for *visualization* and *reporting*.
@@ -35,7 +34,14 @@ This project focuses on analyzing and processing *YouTube trending video data*. 
 ---
 
 ## **Architecture Workflow**
-![Data Architecture](architecture.jpeg)
+1. Raw JSON data is stored in an **Amazon S3 bucket**.
+2. **AWS Lambda** is triggered by an S3 event when a new file is uploaded.
+3. Lambda processes the data using *AWS Data Wrangler* and converts it to *Parquet* format.
+4. Processed Parquet files are stored in a *cleansed layer* S3 bucket.
+5. **AWS Glue** catalogs the data and creates a metadata table.
+6. **Amazon Athena** queries the cataloged data for analysis.
+7. Insights are visualized using **Amazon QuickSight** dashboards.
+
 
 
 ---
